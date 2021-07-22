@@ -1,5 +1,5 @@
 module.exports={
-    FILE_COLLECTION : 'RatuFileBackup',
+    FILE_COLLECTION : 'wtmFileBackup',
     USER_COLLECTION : 'user',
     BANNED_COLLECTION :'banned'
 }

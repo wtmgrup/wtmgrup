@@ -1,8 +1,8 @@
-# RatuFileSaver
+# wtmgrup
 Bot menghasilkan tautan yang dapat dibagikan di dalam telegram untuk video, photo, suara, dokumen dan membuat file publik melalui pencarian inline.
 
 
-<a href="https://heroku.com/deploy?template=https://github.com/BimoSora/RatuFileSaver">
+<a href="https://heroku.com/deploy?template=https://github.com/wtmgrup/wtmgrup">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 <br>
@@ -24,7 +24,7 @@ Detail yang diperlukan.
 
 <code>BOTUSERNAME</code> - Nama pengguna bot Anda tanpa '@'.
 
-<code>DB_URL</code> - Buat akun di https://www.mongodb.com/cloud/atlas , nama database - RatuMediaFile ,nama collection - RatuFileBackup.Klik Connect dan pilih 'Hubungkan aplikasi Anda'.copy tautan dan ganti "< password >" dengan kata sandi pengguna yang memiliki akses ke DB dan ganti "myFirstDatabase" untuk "RatuMediaFile". Kalau mau ubah sesuai keinginan nama databasenya ada di folder config.
+<code>DB_URL</code> - Buat akun di https://www.mongodb.com/cloud/atlas , nama database - wtmMediaFile ,nama collection - wtmFileBackup.Klik Connect dan pilih 'Hubungkan aplikasi Anda'.copy tautan dan ganti "< password >" dengan kata sandi pengguna yang memiliki akses ke DB dan ganti "myFirstDatabase" untuk "wtmMediaFile". Kalau mau ubah sesuai keinginan nama databasenya ada di folder config.
 
 <code>LOG_CHANNEL</code> - buat saluran pribadi dan dapatkan ID saluran (jika Anda tidak dapat meneruskan ID saluran apa pun dari saluran ke @getidsbot itu mungkin terlihat seperti -1001234567899).
 <hr>
