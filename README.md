@@ -1,4 +1,4 @@
-# wtmgrup
+# BLUE BOX CINEMA
 Bot menghasilkan tautan yang dapat dibagikan di dalam telegram untuk video, photo, suara, dokumen dan membuat file publik melalui pencarian inline.
 
 
