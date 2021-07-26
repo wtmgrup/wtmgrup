@@ -32,15 +32,23 @@ Detail yang diperlukan.
 <h1>Berikut adalah beberapa perintah dan penggunaan admin.</h1>
 
 
-1. Bagaimana pengguna melarang dan unban.
-
+    Bagaimana pengguna melarang, unban dan kick dari BOT dan Grup.
 
 <code>/ban</code> userID.
 
 <code>/unban</code> userID.
 
+<code>/kick</code> userID.
+
 (Dapatkan UserID dari saluran log).
 
+
+    Bagaimana cara menggunakan pin dan unpin di grup.
+
+<code>/pin</code> reply ke pesan yang mau di pin.
+
+<code>/unpin</code> reply ke pesan yang mau di unpin.
+ 
 
 <h2>Cara Menghapus File Dari Bot.</h2>
 
@@ -76,7 +84,7 @@ Anda dapat menghapus file 3 cara.
 
 <h2>Kirim pesan ke pengguna</h2>
 
-<code>/send</code> Pesan Anda akan .
+<code>/send</code> Pesan Anda akan dikirim ke pengguna.
 
 (Anda dapat menyiarkan pesan teks ke pengguna Anda, pesan akan dikirim dari pengguna terakhir bergabung untuk pertama-tama bergabung dengan pengguna untuk mengurangi spam. Cobalah untuk tidak mengirim terlalu banyak pesan sekaligus jika Anda memiliki sejumlah besar pengguna).
 
@@ -88,8 +96,7 @@ Anda dapat menghapus file 3 cara.
 (Anda akan mendapatkan total pengguna memulai bot Anda, data waktu nyata akan diperbarui setelah siaran yang berhasil).
 
 
-
-<b>Jika Anda ingin mendukung saya, ikuti saya di GitHub sebagai token dukungan.</b>
+<b>Jika Anda ingin mendukung saya, ikuti saya di GitHub sebagai dukungan.</b>
 
 //Update
 
