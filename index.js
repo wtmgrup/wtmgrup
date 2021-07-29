@@ -437,6 +437,10 @@ bot.command('send',async(ctx)=>{
             const command = words.shift().slice(1);
             const caption = words.join(" ");
 
+            ctx.reply('Terkirim!',{
+                reply_to_message_id: ctx.message.message_id
+            })
+
             bot.telegram.sendMessage(ctx.message.reply_to_message.from.id, `${caption}`)
         }
     }
@@ -525,6 +529,10 @@ bot.command('sendchat',async(ctx)=>{
             const command = words.shift().slice(1);
             const userId = words.shift();
             const caption = words.join(" ");
+
+            ctx.reply('Terkirim!',{
+                reply_to_message_id: ctx.message.message_id
+            })
 
             bot.telegram.sendMessage(userId, `${caption}`)
         }
