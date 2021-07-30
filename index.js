@@ -682,7 +682,7 @@ bot.on('document', async (ctx) => {
 
     if(ctx.from.id ==process.env.ADMIN || ctx.from.id == process.env.ADMIN1 || ctx.from.id == process.env.ADMIN2){
         if(!fileDetails1.file_name){
-            saver.saveFile2(fileDetails2)
+            saver.saveFile(fileDetails2)
             if(ctx.chat.type == 'private') {
                 ctx.reply(`<b>Nama file:</b> ${today2(ctx)}\n<b>Size:</b> ${document.file_size} B\n<b>ID file:</b> ${document.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${document.file_unique_id}`,{
                     parse_mode: 'HTML',
@@ -753,7 +753,7 @@ bot.on('document', async (ctx) => {
                     }
                 }else{
                     if(!fileDetails1.file_name){
-                        saver.saveFile2(fileDetails2)
+                        saver.saveFile(fileDetails2)
                         if(ctx.chat.type == 'private') {
                             ctx.reply(`<b>Nama file:</b> ${today2(ctx)}\n<b>Size:</b> ${document.file_size} B\n<b>ID file:</b> ${document.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${document.file_unique_id}`,{
                                 parse_mode: 'HTML',
@@ -834,7 +834,7 @@ bot.on('video', async(ctx) => {
     }else{
         var exstension = video.file_name;
         var regex = /.(webm|mkv|flv|vob|ogv|ogg|drc|gif|gifv|mng|avi|mts|m2ts|ts|mov|qt|wmv|yuv|rm|rmvb|viv|asf|amv|mp4|m4p|m4v|mpg|mp2|mpeg|mpe|mpv|mpg|mpeg|m2v|m4v|svi|3gp|3g2|mxf|roq|nsv|flv|f4v|f4p|f4a|f4b)/i;
-        var vidext = exstension.replace(regex, ' ');
+        var vidext = exstension.replace(regex, '');
         fileDetails = {
             file_name: vidext,
             userId:ctx.from.id,
@@ -849,7 +849,7 @@ bot.on('video', async(ctx) => {
 
     if(ctx.from.id ==process.env.ADMIN || ctx.from.id == process.env.ADMIN1 || ctx.from.id == process.env.ADMIN2){
         if(!fileDetails1.file_name){
-            saver.saveFile2(fileDetails2)
+            saver.saveFile(fileDetails2)
             if(ctx.chat.type == 'private') {
                 ctx.reply(`<b>Nama file:</b> ${today2(ctx)}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
                     parse_mode: 'HTML',
@@ -870,11 +870,8 @@ bot.on('video', async(ctx) => {
                 })
         }else{
             saver.saveFile(fileDetails)
-            var exstension2 = video.file_name;
-            var regex2 = /.(webm|mkv|flv|vob|ogv|ogg|drc|gif|gifv|mng|avi|mts|m2ts|ts|mov|qt|wmv|yuv|rm|rmvb|viv|asf|amv|mp4|m4p|m4v|mpg|mp2|mpeg|mpe|mpv|mpg|mpeg|m2v|m4v|svi|3gp|3g2|mxf|roq|nsv|flv|f4v|f4p|f4a|f4b)/i;
-            var vidext2 = exstension2.replace(regex2, ' ');
             if(ctx.chat.type == 'private') {
-                ctx.reply(`<b>Nama file:</b> ${vidext2}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
+                ctx.reply(`<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
                     parse_mode: 'HTML',
                     disable_web_page_preview: true,
                     reply_to_message_id: ctx.message.message_id
@@ -883,12 +880,12 @@ bot.on('video', async(ctx) => {
             if (!ctx.message.caption)
                 return ctx.replyWithVideo(video.file_id, {
                     chat_id: process.env.LOG_CHANNEL,
-                    caption: `<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext2}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
+                    caption: `<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
                     parse_mode:'HTML'
                 })
                 ctx.replyWithVideo(video.file_id, {
                     chat_id: process.env.LOG_CHANNEL,
-                    caption: `${ctx.message.caption}\n\n<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext2}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
+                    caption: `${ctx.message.caption}\n\n<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
                     parse_mode:'HTML'
                 })
         }
@@ -923,7 +920,7 @@ bot.on('video', async(ctx) => {
                     }
                 }else{
                     if(!fileDetails1.file_name){
-                        saver.saveFile2(fileDetails2)
+                        saver.saveFile(fileDetails2)
                         if(ctx.chat.type == 'private') {
                             ctx.reply(`<b>Nama file:</b> ${today2(ctx)}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
                                 parse_mode: 'HTML',
@@ -944,11 +941,8 @@ bot.on('video', async(ctx) => {
                             })
                     }else{
                         saver.saveFile(fileDetails)
-                        var exstension3 = video.file_name;
-                        var regex3 = /.(webm|mkv|flv|vob|ogv|ogg|drc|gif|gifv|mng|avi|mts|m2ts|ts|mov|qt|wmv|yuv|rm|rmvb|viv|asf|amv|mp4|m4p|m4v|mpg|mp2|mpeg|mpe|mpv|mpg|mpeg|m2v|m4v|svi|3gp|3g2|mxf|roq|nsv|flv|f4v|f4p|f4a|f4b)/i;
-                        var vidext3 = exstension3.replace(regex3, ' ');
                         if(ctx.chat.type == 'private') {
-                            ctx.reply(`<b>Nama file:</b> ${vidext3}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
+                            ctx.reply(`<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_unique_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,{
                                 parse_mode: 'HTML',
                                 disable_web_page_preview: true,
                                 reply_to_message_id: ctx.message.message_id
@@ -957,12 +951,12 @@ bot.on('video', async(ctx) => {
                         if (!ctx.message.caption)
                             return ctx.replyWithVideo(video.file_id, {
                                 chat_id: process.env.LOG_CHANNEL,
-                                caption: `<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext3}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
+                                caption: `<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
                                 parse_mode:'HTML'
                             })
                             ctx.replyWithVideo(video.file_id, {
                                 chat_id: process.env.LOG_CHANNEL,
-                                caption: `${ctx.message.caption}\n\n<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext3}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
+                                caption: `${ctx.message.caption}\n\n<b>Dari:</b> ${ctx.from.id}\n<b>Nama:</b> ${first_name(ctx)} ${last_name(ctx)}\n\n<b>Nama file:</b> ${vidext}\n<b>Size:</b> ${video.file_size} B\n<b>ID file:</b> ${video.file_id}\n\nhttps://t.me/${process.env.BOTUSERNAME}?start=${video.file_unique_id}`,
                                 parse_mode:'HTML'
                             })
                         }
