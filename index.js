@@ -49,7 +49,10 @@ function last_name(ctx){
     return `${ctx.from.last_name ? ctx.from.last_name : ""}`;
 }
 function username(ctx){
-    return `${ctx.from.username ? ctx.from.username : ""}`;
+    return ctx.from.username ? `@${ctx.from.username}` : "";
+}
+function fromid(ctx){
+    return ctx.from.id ? `[${ctx.from.id}]` : `""`;
 }
 function captionbuild(ctx){
     return `<b>Selamat menikmati.</b>`;
@@ -348,8 +351,9 @@ bot.command('ban',async(ctx)=>{
             user_id: ctx.message.reply_to_message.from.id
             }).then(result=>{
                 console.log(result)
-                let replyUsername = ctx.message.reply_to_message.from.username ? ctx.message.reply_to_message.from.username : ctx.message.reply_to_message.from.first_name ? ctx.message.reply_to_message.from.first_name : ctx.message.reply_to_message.from.id;
-                ctx.reply(`${replyUsername} ${caption}`,{
+                let replyUsername = ctx.message.reply_to_message.from.username ? `@${ctx.message.reply_to_message.from.username}` : `${ctx.message.reply_to_message.from.first_name}`;
+                let replyFromid = ctx.message.reply_to_message.from.id ? `[${ctx.message.reply_to_message.from.id}]` : "";
+                ctx.reply(`${replyUsername} ${replyFromid} ${caption}`,{
                     reply_to_message_id: ctx.message.message_id
                 })
                 return bot.telegram.sendMessage(ctx.message.reply_to_message.from.id, `${caption} Anda telah melanggar peraturan di ${ctx.message.chat.title}`)
@@ -376,8 +380,9 @@ bot.command('unban',async(ctx)=>{
             }
             await bot.telegram.unbanChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id).then(result=>{
                 console.log(result)
-                let replyUsername = ctx.message.reply_to_message.from.username ? ctx.message.reply_to_message.from.username : ctx.message.reply_to_message.from.first_name ? ctx.message.reply_to_message.from.first_name : ctx.message.reply_to_message.from.id;
-                ctx.reply(`${replyUsername} tidak diblokir, boleh masuk kembali!`,{
+                let replyUsername = ctx.message.reply_to_message.from.username ? `@${ctx.message.reply_to_message.from.username}` : `${ctx.message.reply_to_message.from.first_name}`;
+                let replyFromid = ctx.message.reply_to_message.from.id ? `[${ctx.message.reply_to_message.from.id}]` : "";
+                ctx.reply(`${replyUsername} ${replyFromid} tidak diblokir, boleh masuk kembali!`,{
                     reply_to_message_id: ctx.message.message_id
                 })
                 return bot.telegram.sendMessage(ctx.message.reply_to_message.from.id, `Anda tidak diblokir, boleh masuk kembali di ${ctx.message.chat.title}`)
